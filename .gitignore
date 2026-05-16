@@ -62,7 +62,6 @@ htmlcov/
 .tox/
 .nox/
 .mypy_cache/
-.rmpypackage/
 .ruff_cache/
 .hypothesis/
 
