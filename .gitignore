@@ -1,0 +1,84 @@
+# --- This workspace is inside a Python venv; never commit it ---
+Lib/
+Scripts/
+Include/
+pyvenv.cfg
+share/
+pip-selfcheck.json
+
+# --- Virtual environments (any name) ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- Python bytecode & packaging ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Secrets & local config ---
+.env
+.env.*
+!.env.example
+
+# --- Editors & IDEs ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Jupyter / notebooks ---
+.ipynb_checkpoints/
+
+# --- Test & type tooling ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.rmpypackage/
+.ruff_cache/
+.hypothesis/
+
+# --- CrewAI / local caches ---
+.crewai/
+
+# --- Vector DB / embeddings (if used later) ---
+.chroma/
+*.sqlite3
+
+# --- Generated pipeline outputs (CSVs from runs, pickles, reports) ---
+ml-agents/output/**
+!ml-agents/output/.gitkeep
+
+# --- Logs & scratch ---
+*.log
+tmp/
+temp/
+.cache/
