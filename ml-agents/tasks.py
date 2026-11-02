@@ -8,7 +8,8 @@ TARGET_COL = "Sobrevivio"
 
 def build_tasks():
     t1 = Task(
-        description=f"""The raw dataset is at {RAW_DATA_PATH}.
+        description=f"""Each execute_python call is a completely fresh process — always include all imports and data loading at the top of every call.
+        The raw dataset is at {RAW_DATA_PATH}.
         You MUST use the execute_python tool to run all pandas code — never read the 
         raw CSV into your context directly. Use df.head(), df.dtypes, df.describe(), 
         df.isnull().sum(), and df.duplicated().sum() to inspect the data, then write 
@@ -21,7 +22,8 @@ def build_tasks():
     )
 
     t2 = Task(
-        description=f"""Use execute_python to read {WORKSPACE}/clean.csv and apply 
+        description=f"""Each execute_python call is a completely fresh process — always include all imports and data loading at the top of every call.
+        Use execute_python to read {WORKSPACE}/clean.csv and apply 
         feature engineering: encode all categorical columns, scale numeric columns.
         IMPORTANT: The target column is '{TARGET_COL}'. Keep it in the final 
         dataframe — do NOT drop or encode it, leave it exactly as-is.
@@ -36,7 +38,8 @@ def build_tasks():
     )
 
     t3 = Task(
-        description=f"""Read {WORKSPACE}/features.csv and train a classification model.
+        description=f"""Each execute_python call is a completely fresh process — always include all imports and data loading at the top of every call.
+        Read {WORKSPACE}/features.csv and train a classification model.
         Key facts: the target column is '{TARGET_COL}', use class_weight='balanced' 
         on all classifiers to handle class imbalance, and do an 80/20 train/test split.
         Try at least 2 algorithms, compare them, and keep the best one.
@@ -52,7 +55,8 @@ def build_tasks():
     )
 
     t4 = Task(
-        description=f"""Load {WORKSPACE}/model.pkl, {WORKSPACE}/test_predictions.pkl, 
+        description=f"""Each execute_python call is a completely fresh process — always include all imports and data loading at the top of every call.
+        Load {WORKSPACE}/model.pkl, {WORKSPACE}/test_predictions.pkl, 
         and {WORKSPACE}/y_test.pkl using execute_python, then compute accuracy, precision, 
         recall, F1, and confusion matrix. Interpret the results — is the model biased 
         toward one class? Is it good enough for a production Titanic survival predictor?
@@ -65,7 +69,8 @@ def build_tasks():
     )
 
     t5 = Task(
-        description=f"""Use read_file to read {WORKSPACE}/eval_report.txt and check the 
+        description=f"""Each execute_python call is a completely fresh process — always include all imports and data loading at the top of every call.
+        Use read_file to read {WORKSPACE}/eval_report.txt and check the 
         last line for the verdict. 
         If DEPLOY: you MUST call execute_python to run: 
         import shutil, os; os.makedirs('{WORKSPACE}/prod', exist_ok=True); 

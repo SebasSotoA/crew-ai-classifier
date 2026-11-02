@@ -2,9 +2,8 @@ from crewai import Agent, LLM
 from tools import execute_python, read_file, write_file, list_files
 
 llm = LLM(
-    model="ollama/llama3.1:8b",
-    base_url="http://localhost:11434",
-    temperature=0.2
+    model="openai/gpt-4o-mini",
+    temperature=0,
 )
 
 WORKSPACE = "./output"
@@ -20,7 +19,7 @@ data_agent = Agent(
     the data is genuinely clean. Save your result to {WORKSPACE}/clean.csv and write 
     a brief report of every decision you made to {WORKSPACE}/data_report.txt.""",
     tools=primitive_tools,
-    max_iter=6,
+    max_iter=15,
     llm=llm,
     verbose=True
 )
@@ -49,8 +48,7 @@ training_agent = Agent(
     and both prior reports to understand the data fully. You autonomously:
     - Decide which algorithm(s) to try based on data size, feature types, and class balance
     - Implement train/validation/test splits appropriately
-    - Try at least 2 algorithms and compare them
-    - Perform basic hyperparameter tuning on the best one
+    - Perform basic hyperparameter tuning on the model
     - Save the winning model to {WORKSPACE}/model.pkl using joblib
     - Save test set predictions to {WORKSPACE}/test_predictions.pkl
     - Write your methodology and results to {WORKSPACE}/training_report.txt""",
